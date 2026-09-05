@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MediReminder Pro - medicine reminders and medication history">
+<title>MediReminder Pro</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="top-bar">
+        <p class="tagline">Smart Medicine Reminder for Elderly Care</p>
+        <button type="button" onclick="toggleDarkMode()" id="darkModeButton">🌙 Dark Mode</button>
+    </div>
+
+    <h1>🏥 MediReminder Pro</h1>
+
+    <div class="profile-card">
+        <h2>Parent Profile</h2>
+        <input type="text" id="parentName" placeholder="Parent Name" autocomplete="name">
+        <input type="number" id="parentAge" placeholder="Age" min="0" max="130" inputmode="numeric">
+        <input type="text" id="bloodGroup" placeholder="Blood Group">
+        <button type="button" onclick="saveProfile()">Save Profile</button>
+        <div id="profileDisplay" aria-live="polite"></div>
+    </div>
+
+    <div class="doctor-card">
+        <h2>👨‍⚕️ Doctor Details</h2>
+        <input type="text" id="doctorName" placeholder="Doctor Name" autocomplete="name">
+        <input type="tel" id="doctorPhone" placeholder="Doctor Phone" autocomplete="tel">
+        <button type="button" onclick="saveDoctor()">Save Doctor</button>
+        <div id="doctorDisplay" aria-live="polite"></div>
+    </div>
+
+    <div class="emergency-card">
+        <h2>🚨 Emergency Contact</h2>
+        <input type="text" id="emergencyName" placeholder="Contact Name" autocomplete="name">
+        <input type="tel" id="emergencyPhone" placeholder="Emergency Phone" autocomplete="tel">
+        <button type="button" onclick="saveEmergencyContact()">Save Contact</button>
+        <div id="emergencyDisplay" aria-live="polite"></div>
+    </div>
+
+    <div class="dashboard">
+        Total Medicines: <span id="totalCount">0</span>
+        <span class="dashboard-separator">|</span>
+        Today Taken: <span id="takenCount">0</span>
+        <span class="dashboard-separator">|</span>
+        Pending: <span id="pendingCount">0</span>
+    </div>
+
+    <div class="report-card">
+        <h3>📊 Today's Health Report</h3>
+        <p id="report"></p>
+    </div>
+
+    <h2>Add Medicine</h2>
+    <input type="text" id="medicine" placeholder="Enter Medicine Name">
+    <select id="medicineType">
+        <option value="Tablet">💊 Tablet</option>
+        <option value="Syrup">🧴 Syrup</option>
+        <option value="Injection">💉 Injection</option>
+        <option value="Capsule">💊 Capsule</option>
+        <option value="Other">🩺 Other</option>
+    </select>
+    <label for="time">Reminder Time</label>
+    <input type="time" id="time">
+    <button type="button" onclick="addMedicine()">Add Medicine</button>
+
+    <input type="search" id="searchMedicine" placeholder="🔍 Search Medicine" oninput="searchMedicine()" aria-label="Search medicines">
+
+    <h2>Medicine List</h2>
+    <ul id="medicineList"></ul>
+    <p id="emptyMedicineMessage" class="empty-message">No medicines added yet.</p>
+
+    <h2>📊 Medicine History</h2>
+    <button type="button" onclick="downloadReport()">📄 Download Report</button>
+    <button type="button" onclick="clearHistory()">🗑️ Clear History</button>
+
+    <div class="table-wrap">
+        <table id="historyTable">
+            <thead>
+                <tr>
+                    <th>Medicine</th>
+                    <th>Time</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="historyBody"></tbody>
+        </table>
+    </div>
+
+    <div class="alarm-controls">
+        <button type="button" onclick="enableAlarms()">🔔 Enable Alarm</button>
+        <button type="button" onclick="playAlarm()">🔊 Test Alarm</button>
+        <button type="button" onclick="callEmergency()">📞 Emergency Contact</button>
+    </div>
+
+    <p id="appStatus" class="app-status" aria-live="polite"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
