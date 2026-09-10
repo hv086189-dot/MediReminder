@@ -22,9 +22,9 @@
 | 🐛 Issues | [Report an Issue](https://github.com/hv086189-dot/MediReminder/issues) |
 | 💡 Feature Requests | [Request a Feature](https://github.com/hv086189-dot/MediReminder/issues/new) |
 
-> **Live Demo:** A GitHub Pages URL has not been provided yet. After GitHub Pages is enabled, add the live URL here.
+## 🚀 Live Demo
 
----
+👉 [Open MediReminder Pro](https://hv086189-dot.github.io/MediReminder/)
 
 ## 📌 About the Project
 
